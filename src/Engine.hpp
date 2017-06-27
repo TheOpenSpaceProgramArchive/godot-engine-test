@@ -3,9 +3,11 @@
 #include <godot_cpp/core/Vector3.hpp>
 #include "ThrustProducer.hpp"
 
+#pragma once
+
 namespace OSP {
-    class Engine : public ThrustProducer, public godot::Node {
-        GODOT_CLASS(Engine, godot::Node)
+    class Engine : public ThrustProducer {
+        GODOT_CLASS(Engine, ThrustProducer)
     public:
         Engine(); // use default values while i figure out how to make it editable in the editor
         Engine(float maxThrustASL, float maxThrustVac, float ispASL, float ispVac);

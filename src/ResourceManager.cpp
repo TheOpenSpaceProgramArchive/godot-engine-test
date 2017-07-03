@@ -1,7 +1,9 @@
-#include <vector>
-#include <string.h>
+#include <map>
+#include <string>
 #include "ResourceManager.hpp"
 #include "Resource.hpp"
+
+using std::string;
 
 namespace OSP {
     ResourceManager *ResourceManager::getInstance() {
@@ -9,25 +11,27 @@ namespace OSP {
         return instance;
     }
 
-    void ResourceManager::registerResource(char *name, float unitMass) {
-        ResourceSpec spec;
-        spec.name = name;
-        spec.unitMass = unitMass;
-        resources->push_back(spec);
+    void ResourceManager::registerResource(string name, float unitMass) {
+        resources.insert(std::pair<string, float>(name, unitMass));
     }
 
-    Resource *ResourceManager::createResource(char *name, float amount) {
-        ResourceSpec spec;
-        for (auto it = resources->begin(); it != resources->end(); ++it) {
-            if (strcmp(*it.name, name) == 0) {
-                spec = *it;
-                break;
-            }
-        }
+    Resource *ResourceManager::createResourceByAmount(string name, float amount) {
         Resource *resource;
         resource->name = name;
         resource->amount = amount;
-        resource->mass = amount * spec.unitMass;
+        resource->mass = amount * resources[name];
         return resource;
+    }
+
+    Resource *ResourceManager::createResourceByMass(string name, float mass) {
+        Resource *resource;
+        resource->name = name;
+        resource->amount = mass / resources[name];
+        resource->mass = mass;
+        return resource;
+    }
+
+    float ResourceManager::getUnitMass(string name) {
+        return resources[name];
     }
 }

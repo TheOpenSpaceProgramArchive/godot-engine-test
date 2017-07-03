@@ -1,4 +1,5 @@
-#include <vector>
+#include <map>
+#include <string>
 #include "Resource.hpp"
 
 #pragma once
@@ -6,17 +7,13 @@
 namespace OSP {
     class ResourceManager {
     private:
-        struct ResourceSpec {
-            char *name;
-            float unitMass;
-        };
-        std::vector<ResourceSpec> *resources;
+        std::map<std::string, float> resources;
         ResourceManager();
-        ResourceManager(const ResourceManager &copy);
-        ResourceManager &(const ResourceManager &assign);
     public:
         static ResourceManager *getInstance();
-        void registerResource(char *name, float unitMass);
-        Resource *createResource(char *name, float amount);
+        void registerResource(std::string name, float unitMass);
+        Resource *createResourceByAmount(std::string name, float amount);
+        Resource *createResourceByMass(std::string name, float mass);
+        float getUnitMass(std::string name);
     };
 }

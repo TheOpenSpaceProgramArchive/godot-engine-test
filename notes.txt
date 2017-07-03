@@ -1,0 +1,5 @@
+get the sum of all the ratios
+divide each of the ratios into that sum
+multiply those by the total mass to consume
+make sure you have enough of every resource
+

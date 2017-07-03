@@ -6,7 +6,7 @@ using namespace std;
 
 namespace OSP {
     void Part::addModule(PartModule *module) {
-        modules->push_back(module);
+        modules.push_back(module);
     }
 
     void Part::removeModule(PartModule *module) {
@@ -16,10 +16,10 @@ namespace OSP {
     }
 
     vector<PartModule *>::iterator Part::getModulesIterator() {
-        return modules->begin();
+        return modules.begin();
     }
 
-    vector<PartModule *> *getModulesOfType(char *type) {
+    vector<PartModule *> getModulesOfType(char *type) {
         // todo
     }
 }

@@ -9,12 +9,12 @@ namespace OSP {
 
     class Part : public godot::RigidBody {
         GODOT_CLASS(Part, godot::RigidBody)
-        std::vector<PartModule *> *modules;
+        std::vector<PartModule *> modules;
     public:
         float mass;
         void addModule(PartModule *module);
         void removeModule(PartModule *module);
         std::vector<PartModule *>::iterator getModulesIterator();
-        std::vector<PartModule *> *getModulesOfType(char *type);
+        std::vector<PartModule *> getModulesOfType(char *type);
     };
 }

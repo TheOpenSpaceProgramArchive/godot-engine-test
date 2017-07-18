@@ -7,6 +7,8 @@ func _ready():
 
 func _input_event(ev):
 	if ev.type == InputEvent.MOUSE_BUTTON and ev.button_index == BUTTON_LEFT:
+		if ev.pressed:
+			get_node("..").raise()
 		dragging = ev.pressed
 
 func _input(ev):

@@ -1,13 +1,13 @@
 [gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
-[ext_resource path="res://window.gd" type="Script" id=2]
-[ext_resource path="res://themes/default/window.png" type="Texture" id=3]
-[ext_resource path="res://titlebar.gd" type="Script" id=4]
-[ext_resource path="res://themes/default/close-normal.png" type="Texture" id=5]
-[ext_resource path="res://themes/default/close-active.png" type="Texture" id=6]
-[ext_resource path="res://themes/default/close-hover.png" type="Texture" id=7]
-[ext_resource path="res://themes/default/default.thm" type="Theme" id=8]
+[ext_resource path="res://themes/default/default.thm" type="Theme" id=2]
+[ext_resource path="res://window.gd" type="Script" id=3]
+[ext_resource path="res://themes/default/window.png" type="Texture" id=4]
+[ext_resource path="res://titlebar.gd" type="Script" id=5]
+[ext_resource path="res://themes/default/close-normal.png" type="Texture" id=6]
+[ext_resource path="res://themes/default/close-active.png" type="Texture" id=7]
+[ext_resource path="res://themes/default/close-hover.png" type="Texture" id=8]
 [ext_resource path="res://themeSelector.gd" type="Script" id=9]
 
 [node name="root" type="Node2D"]
@@ -20,11 +20,12 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+theme/theme = ExtResource( 2 )
 margin/left = 100.0
 margin/top = 100.0
 margin/right = 356.0
 margin/bottom = 152.0
-script/script = ExtResource( 2 )
+script/script = ExtResource( 3 )
 
 [node name="bkg" type="Patch9Frame" parent="window1"]
 
@@ -36,7 +37,7 @@ margin/left = 0.0
 margin/top = -24.0
 margin/right = 256.0
 margin/bottom = 52.0
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 patch_margin/left = 4
 patch_margin/top = 25
 patch_margin/right = 4
@@ -51,7 +52,7 @@ margin/left = 0.0
 margin/top = -24.0
 margin/right = 256.0
 margin/bottom = 0.0
-script/script = ExtResource( 4 )
+script/script = ExtResource( 5 )
 
 [node name="closeButton" type="TextureButton" parent="window1/titlebar"]
 
@@ -66,9 +67,9 @@ margin/bottom = 20.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 5 )
-textures/pressed = ExtResource( 6 )
-textures/hover = ExtResource( 7 )
+textures/normal = ExtResource( 6 )
+textures/pressed = ExtResource( 7 )
+textures/hover = ExtResource( 8 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -78,7 +79,7 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-theme/theme = ExtResource( 8 )
+theme/theme = ExtResource( 2 )
 margin/left = 0.0
 margin/top = 5.0
 margin/right = 256.0
@@ -95,7 +96,7 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-theme/theme = ExtResource( 8 )
+theme/theme = ExtResource( 2 )
 margin/left = 16.0
 margin/top = 19.0
 margin/right = 64.0
@@ -111,7 +112,119 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-theme/theme = ExtResource( 8 )
+theme/theme = ExtResource( 2 )
+margin/left = 72.0
+margin/top = 16.0
+margin/right = 240.0
+margin/bottom = 36.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+align = 0
+selected = -1
+items = [  ]
+script/script = ExtResource( 9 )
+
+[node name="window2" type="Control" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 2 )
+margin/left = 200.0
+margin/top = 200.0
+margin/right = 456.0
+margin/bottom = 252.0
+script/script = ExtResource( 3 )
+
+[node name="bkg" type="Patch9Frame" parent="window2"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = -24.0
+margin/right = 256.0
+margin/bottom = 52.0
+texture = ExtResource( 4 )
+patch_margin/left = 4
+patch_margin/top = 25
+patch_margin/right = 4
+
+[node name="titlebar" type="Control" parent="window2"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = -24.0
+margin/right = 256.0
+margin/bottom = 0.0
+script/script = ExtResource( 5 )
+
+[node name="closeButton" type="TextureButton" parent="window2/titlebar"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 236.0
+margin/top = 4.0
+margin/right = 252.0
+margin/bottom = 20.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 6 )
+textures/pressed = ExtResource( 7 )
+textures/hover = ExtResource( 8 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="title" type="Label" parent="window2/titlebar"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+theme/theme = ExtResource( 2 )
+margin/left = 0.0
+margin/top = 5.0
+margin/right = 256.0
+margin/bottom = 19.0
+text = "Themes"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label" type="Label" parent="window2"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+theme/theme = ExtResource( 2 )
+margin/left = 16.0
+margin/top = 19.0
+margin/right = 64.0
+margin/bottom = 33.0
+text = "Theme:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="OptionButton" type="OptionButton" parent="window2"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 2 )
 margin/left = 72.0
 margin/top = 16.0
 margin/right = 240.0
